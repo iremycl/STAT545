@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-
+--- R Functions ---
 ```{r}
 library(dplyr)
 
@@ -32,4 +32,41 @@ fun2 <- function(data, calculation){
 
 fun2(gapminder, as.factor(gdpPercap * pop))
 ```
+
+R Packages
+
+#devtools make changes to your PC within R
+
+```{r}
+#library(devtools)
+#create.package("/Users/iremyucel/Desktop/powers")
+
+#On the new Rstudio powers"
+#library(devtools)
+#use_git()
+
+#' Square the input
+#'
+#'@param x Vector to square
+#'@return The vector `x` squared
+#'@examples
+#'
+#'square(1:10)
+#'square(7)
+#'@export
+square <- function(x){
+  x ^ 2
+}
+
+```
+
+
+
+
+
+
+
+
+
+
 
