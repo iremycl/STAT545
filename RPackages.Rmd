@@ -1,0 +1,35 @@
+---
+title: "RPackages"
+author: "Irem YUCEL"
+date: "02/11/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r}
+library(dplyr)
+
+fun <- function(data, col) {
+  calculations <- dplyr::summarise(data,
+                                    is.numeric_x = is.numeric({{col}}),
+                                    class_x = class({{col}}))
+  if (!calculations$is.numeric){
+    stop("Selected column is not numeric. Column is:", calculations$class)
+  }
+  stopifnot()
+  dplyr::select(data, col) # will try tp find "col" col in data, will not replace with the input col. Use double curly brackets.
+}
+
+##curly curly only works in dplyr - tidyverse functions. try to make it in tidyverse function!!
+
+fun(gapminder, country)
+
+fun2 <- function(data, calculation){
+  dplyr::mutate(data, {{calculation}})
+}
+
+fun2(gapminder, as.factor(gdpPercap * pop))
+```
+
