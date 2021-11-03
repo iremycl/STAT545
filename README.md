@@ -1,3 +1,3 @@
-# stat545demo
-Just a demo for class STAT545.
+# STAT545
+Class repository for work done in STAT545 by Irem YUCEL.
 
